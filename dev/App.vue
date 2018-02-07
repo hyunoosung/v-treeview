@@ -3,7 +3,7 @@
     <v-tree v-model="treeData" :treeTypes="treeTypes" @selected="treeNodeSelected" @contextCall="showContextMenu"></v-tree>
   </div>
 </template>
- 
+ {{treeData}}
 <script type="text/javascript">
 import VTree from "../src/index.js";
 

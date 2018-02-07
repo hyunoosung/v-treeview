@@ -15,12 +15,15 @@ export default {
   data: function() {
     return {};
   },
+  created() {
+    this.message = "VTree created!";
+  },
   methods: {
     selected(node) {
-      this.$emit('selected', node);
+      this.$emit("selected", node);
     },
-    contextCall(e){
-      this.$emit('contextCall', e);
+    contextCall(e) {
+      this.$emit("contextCall", e);
     }
   },
   components: {
@@ -30,7 +33,7 @@ export default {
 </script>
 
 <style scoped>
-ul{
+ul {
   position: relative;
 }
 </style>
