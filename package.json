@@ -4,6 +4,7 @@
   "description": "A treeview component for Vue.js 2.0",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./src --ext .js --ext .vue",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
