@@ -1,5 +1,5 @@
 {
-  "name": "v-tree",
+  "name": "v-treeview",
   "version": "1.0.0",
   "description": "A treeview component for Vue.js 2.0",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/hyounoo/v-tree.git"
   },
   "keywords": [
-    "v-tree",
+    "v-treeview",
     "vue.js",
     "treeview"
   ],
