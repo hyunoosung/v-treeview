@@ -1,21 +1,38 @@
 <template>
   <ul>
-      <p>{{version}}</p>
+    <v-tree-item class="v-treeItem" v-for="(item, index) in value" :key="item.id" 
+      :model="item" :treeTypes="treeTypes" 
+      @selected="selected" @contextCall="contextCall"></v-tree-item>            
   </ul>
 </template>
 
 <script>
-import Vue from "vue";
+import VTreeItem from "./VTreeItem.vue";
 
 export default {
-  computed: {
-    version() {
-      return Vue.version;
+  props: ["value", "treeTypes"],
+  name: "v-tree",
+  data: function() {
+    return {};
+  },
+  methods: {
+    selected(node) {
+      this.$emit('selected', node);
+    },
+    contextCall(e){
+      this.$emit('contextCall', e);
     }
+  },
+  components: {
+    VTreeItem
   }
 };
 </script>
 
-<style>
-
+<style scoped>
+ul{
+  position: relative;
+}
 </style>
+
+
