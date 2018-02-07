@@ -4,8 +4,11 @@
   "description": "A treeview component for Vue.js 2.0",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./src --ext .js --ext .vue",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start",
+    "test:watch": "karma start --single-run=false",
+    "lint": "eslint src --ext=js,vue || exit 0",
+    "dev": "webpack-dev-server --content-base ./dev --env=webpack.dev --open --hot",
+    "dist": "webpack --env=webpack.dist"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,10 @@
   "bugs": {
     "url": "https://github.com/hyounoo/v-tree/issues"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "homepage": "https://github.com/hyounoo/v-tree#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -29,10 +36,17 @@
     "css-loader": "^0.28.9",
     "eslint": "^4.17.0",
     "eslint-plugin-vue": "^4.2.2",
+    "jasmine-core": "^3.0.0",
+    "karma": "^2.0.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-spec-reporter": "0.0.32",
+    "karma-webpack": "^2.0.9",
     "vue": "^2.5.13",
     "vue-loader": "^14.1.1",
     "vue-template-compiler": "^2.5.13",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {}
 }
