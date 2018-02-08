@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="treeNodeSelected" @contextCall="showContextMenu"></v-treeview>
+    <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="treeNodeSelected" @contextCall="showContextMenu" :openAll="openAll"></v-treeview>
   </div>
 </template>
 <script type="text/javascript">
@@ -9,6 +9,7 @@ import VTreeview from "../src/index.js";
 export default {
   data() {
     return {
+      openAll: true,
       treeTypes: [
         {
           type: "#",

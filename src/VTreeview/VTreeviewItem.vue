@@ -12,7 +12,8 @@
     <div class="tree-children">
       <ul v-show="open" v-if="isFolder">
         <v-treeview-item v-for="(child, index) in model.children" :key="index" 
-        :model="child" :treeTypes="treeTypes" @selected="selected" @contextCall="contextCall">
+        :model="child" :treeTypes="treeTypes" :openAll="openAll"
+        @selected="selected" @contextCall="contextCall">
         </v-treeview-item>      
       </ul>
     </div>
@@ -20,9 +21,10 @@
 </template>
 
 <script>
+import { EventBus } from "../event-bus.js";
 export default {
   name: "v-treeview-item",
-  props: ["model", "treeTypes"],
+  props: ["model", "treeTypes", "openAll"],
   data: function() {
     return {
       open: false,
@@ -30,7 +32,7 @@ export default {
       edit: false
     };
   },
-  computed: {  
+  computed: {
     typeRule() {
       var typeRule = this.treeTypes.filter(t => t.type == this.model.type);
       return typeRule.length > 0 ? typeRule[0] : null;
@@ -43,7 +45,7 @@ export default {
     }
   },
   methods: {
-    blur(){
+    blur() {
       this.edit = false;
     },
     selected(node) {
@@ -65,6 +67,9 @@ export default {
       }
       this.selected(this);
     }
+  },
+  created() {
+    this.open = this.openAll;
   }
 };
 </script>
