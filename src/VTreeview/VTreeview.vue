@@ -1,34 +1,48 @@
 <template>
-  <ul>
-    <v-treeview-item class="v-treeview-item" v-for="item in value" :key="item.id" 
-      :model="item" :treeTypes="treeTypes" :openAll="openAll"
-      @selected="selected" @contextCall="contextCall"></v-treeview-item>            
-  </ul>
+<div @mouseup.prevent="mousedown">
+    <ul>
+      <v-treeview-item class="v-treeview-item" v-for="item in value" :key="item.id" 
+        :model="item" :treeTypes="treeTypes" :openAll="openAll"
+        @selected="selected"></v-treeview-item>            
+    </ul>
+    <v-context :show="showContext" :contextItems="contextItems" :mouseEvent="mouseEvent" @contextSelected="contextSelected" ></v-context>
+  </div>
 </template>
 
 <script>
 import VTreeviewItem from "./VTreeviewItem.vue";
-import { EventBus } from "../event-bus.js";
+import VContext from "../VContext/VContext.vue";
 
 export default {
-  props: ["value", "treeTypes", "openAll"],
+  props: ["value", "treeTypes", "openAll", "contextItems", "editName"],
   name: "v-treeview",
-  data: function() {
-    return {};
+  data() {
+    return {
+      showContext: false,
+      mouseEvent: null
+    };
   },
-  created() {
-    this.message = "VTreeview created!";
-    console.log("openAll in parent: " + this.open);
-  },
+  created() {},
   methods: {
     selected(node) {
       this.$emit("selected", node);
     },
-    contextCall(e) {
-      this.$emit("contextCall", e);
+    contextSelected(title){
+      this.$emit("contextSelected", title);
+    },
+    mousedown(e) {
+      if (this.contextItems) {
+        e.preventDefault();
+        this.mouseEvent = {
+          button: e.button,
+          layerX: e.layerX,
+          layerY: e.layerY
+        };
+      }
     }
   },
   components: {
+    VContext,
     VTreeviewItem
   }
 };

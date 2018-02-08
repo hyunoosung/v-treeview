@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="treeNodeSelected" @contextCall="showContextMenu" :openAll="openAll"></v-treeview>
+    <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected"></v-treeview>
   </div>
 </template>
 <script type="text/javascript">
@@ -203,8 +203,8 @@ export default {
           ]
         }
       ],
-      selectedNode: null,
-      items: null
+      contextItems: [],
+      selectedNode: null
     };
   },
   methods: {
@@ -212,17 +212,17 @@ export default {
       var typeRule = this.treeTypes.filter(t => t.type == type)[0];
       return typeRule;
     },
-    nodeCommand(command) {
-      console.log(command);
+    contextSelected(command) {
       switch (command) {
         case "Create Basic":
           var node = {
+            id: null,
+            count: 0,
             text: "New Basic Plan",
             type: "Basic",
             children: []
           };
-          this.selectedNode.model.children.push(node);
-
+          this.selectedNode.addNode(node);
           break;
         case "Create Top-up":
           var node = {
@@ -230,30 +230,19 @@ export default {
             type: "Top-up",
             children: []
           };
-          this.selectedNode.model.children.push(node);
-
+          this.selectedNode.addNode(node);          
           break;
         case "Rename":
-          this.selectedNode.model.edit = true;
-          console.log(this.selectedNode.model);
+          this.selectedNode.editName();
           break;
         case "Remove":
           break;
       }
     },
-    showContextMenu(e) {
-      this.showMenu = false;
-      this.x = 160;
-      this.y = e.clientY;
-      this.$nextTick(() => {
-        this.showMenu = true;
-      });
-    },
-    treeNodeSelected(node) {
-      //console.log(node);
+    selected(node) {
       this.selectedNode = node;
 
-      this.items = [];
+      this.contextItems = [];
       var typeRule = this.getTypeRule(this.selectedNode.model.type);
 
       typeRule.valid_children.map(function(type, key) {
@@ -263,11 +252,11 @@ export default {
           icon: childType.icon,
           type: childType
         };
-        this.items.push(item);
+        this.contextItems.push(item);
       }, this);
 
-      this.items.push({ title: "Rename", icon: "far fa-edit" });
-      this.items.push({ title: "Remove", icon: "far fa-trash-alt" });
+      this.contextItems.push({ title: "Rename", icon: "far fa-edit" });
+      this.contextItems.push({ title: "Remove", icon: "far fa-trash-alt" });
     }
   },
 

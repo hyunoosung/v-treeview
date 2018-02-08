@@ -8,12 +8,12 @@
     </span>
     <input type="radio" name="rad" v-model="checked" :id="model.id" :value="model.id">        
     <label v-show="!edit" class="tree-text" :for="model.id" @click="toggle" @contextmenu.prevent="showContextMenu" key="label">{{model.text}}</label>    
-    <input v-show="edit" class="tree-text" v-model="model.text" :placeholder="model.text" key="input" @blur="blur">
+    <input v-show="edit" ref="title" class="tree-text" v-model="model.text" :placeholder="model.text" key="input" @blur="blur" @keyup.enter="blur" v-focus>
     <div class="tree-children">
       <ul v-show="open" v-if="isFolder">
-        <v-treeview-item v-for="(child, index) in model.children" :key="index" 
-        :model="child" :treeTypes="treeTypes" :openAll="openAll"
-        @selected="selected" @contextCall="contextCall">
+        <v-treeview-item v-for="child in model.children" :key="child.id" 
+        :model="child" :treeTypes="treeTypes" :openAll="openAll" @addNode="addNode"
+        @selected="selected">
         </v-treeview-item>      
       </ul>
     </div>
@@ -21,11 +21,22 @@
 </template>
 
 <script>
-import { EventBus } from "../event-bus.js";
+import Vue from "vue";
+Vue.directive("focus", {
+  inserted: function(el) {
+    el.focus();
+  },
+  update: function(el) {
+    Vue.nextTick(function() {
+      el.focus();
+    });
+  }
+});
+
 export default {
   name: "v-treeview-item",
   props: ["model", "treeTypes", "openAll"],
-  data: function() {
+  data() {
     return {
       open: false,
       checked: null,
@@ -33,18 +44,18 @@ export default {
     };
   },
   computed: {
-    typeRule() {
-      var typeRule = this.treeTypes.filter(t => t.type == this.model.type);
-      return typeRule.length > 0 ? typeRule[0] : null;
-    },
     isFolder() {
       return this.model.children && this.model.children.length;
     },
     icon() {
-      return this.typeRule.icon;
+      return this.getTypeRule(this.model.type).icon;
     }
   },
   methods: {
+    getTypeRule(type) {
+      var typeRule = this.treeTypes.filter(t => t.type == type)[0];
+      return typeRule;
+    },
     blur() {
       this.edit = false;
     },
@@ -53,13 +64,21 @@ export default {
       this.checked = this.model.id;
       this.$emit("selected", node);
     },
-    contextCall(e) {
-      this.$emit("contextCall", e);
+    addNode(newNode) {
+      var typeRule = this.getTypeRule(this.model.type);
+
+      if (typeRule.valid_children.indexOf(newNode.type) > -1) {
+        this.model.children.push(newNode);
+      }
+    },
+    editName() {
+      this.edit = true;
+      this.$nextTick(() => this.$refs.title.focus());
     },
     showContextMenu(e) {
+      e.preventDefault();
       this.open = true;
       this.selected(this);
-      this.contextCall(e);
     },
     toggle() {
       if (this.isFolder) {
@@ -69,7 +88,15 @@ export default {
     }
   },
   created() {
+    if (this.model.id == null) {
+      this.editName();
+    }
     this.open = this.openAll;
+  },
+  watch: {
+    openAll(openAll) {
+      this.open = openAll;
+    }
   }
 };
 </script>
