@@ -2,7 +2,7 @@
   "name": "v-treeview",
   "version": "0.0.5",
   "description": "A treeview component for Vue.js 2.0",
-  "main": "index.js",
+  "main": "./dist/v-treeview.min.js",
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --single-run=false",
