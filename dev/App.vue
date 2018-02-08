@@ -1,11 +1,10 @@
 <template>
   <div>
-    <v-tree v-model="treeData" :treeTypes="treeTypes" @selected="treeNodeSelected" @contextCall="showContextMenu"></v-tree>
+    <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="treeNodeSelected" @contextCall="showContextMenu"></v-treeview>
   </div>
 </template>
- {{treeData}}
 <script type="text/javascript">
-import VTree from "../src/index.js";
+import VTreeview from "../src/index.js";
 
 export default {
   data() {
@@ -272,7 +271,7 @@ export default {
   },
 
   components: {
-    VTree
+    VTreeview
   }
 };
 </script>

@@ -1,22 +1,22 @@
 <template>
   <ul>
-    <v-tree-item class="v-treeItem" v-for="(item, index) in value" :key="item.id" 
+    <v-treeview-item class="v-treeview-item" v-for="(item) in value" :key="item.id" 
       :model="item" :treeTypes="treeTypes" 
-      @selected="selected" @contextCall="contextCall"></v-tree-item>            
+      @selected="selected" @contextCall="contextCall"></v-treeview-item>            
   </ul>
 </template>
 
 <script>
-import VTreeItem from "./VTreeItem.vue";
+import VTreeviewItem from "./VTreeviewItem.vue";
 
 export default {
   props: ["value", "treeTypes"],
-  name: "v-tree",
+  name: "v-treeview",
   data: function() {
     return {};
   },
   created() {
-    this.message = "VTree created!";
+    this.message = "VTreeview created!";
   },
   methods: {
     selected(node) {
@@ -27,7 +27,7 @@ export default {
     }
   },
   components: {
-    VTreeItem
+    VTreeviewItem
   }
 };
 </script>

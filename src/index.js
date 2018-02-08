@@ -1,3 +1,3 @@
-import VTree from './VTree/VTree.vue'
+import VTreeview from './VTreeview/VTreeview.vue'
 
-export default VTree
+export default VTreeview

@@ -6,8 +6,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/dist/',
-        filename: 'v-tree.min.js',
-        library: 'VTree',
+        filename: 'v-treeview.min.js',
+        library: 'VTreeview',
         libraryTarget: 'umd',
         umdNamedDefine: true
     },

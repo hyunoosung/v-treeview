@@ -11,9 +11,9 @@
     <input v-show="edit" class="tree-text" v-model="model.text" :placeholder="model.text" key="input" @blur="blur">
     <div class="tree-children">
       <ul v-show="open" v-if="isFolder">
-        <v-tree-item class="v-tree-item" v-for="(child, index) in model.children" :key="index" 
+        <v-treeview-item v-for="(child, index) in model.children" :key="index" 
         :model="child" :treeTypes="treeTypes" @selected="selected" @contextCall="contextCall">
-        </v-tree-item>      
+        </v-treeview-item>      
       </ul>
     </div>
   </li>
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "v-tree-item",
+  name: "v-treeview-item",
   props: ["model", "treeTypes"],
   data: function() {
     return {
