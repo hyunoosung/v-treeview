@@ -216,8 +216,6 @@ export default {
       switch (command) {
         case "Create Basic":
           var node = {
-            id: null,
-            count: 0,
             text: "New Basic Plan",
             type: "Basic",
             children: []
