@@ -8,7 +8,7 @@ Support customizable context menu and tree types, configurable font awesom icon,
 [![GitHub forks](https://img.shields.io/github/forks/hyounoo/v-treeview.svg?style=social&label=Fork&style=for-the-badge)](https://github.com/hyounoo/v-treeview/network)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
-# Version: 0.0.9
+# Version: 0.1.1
 
 ### How to use
 
