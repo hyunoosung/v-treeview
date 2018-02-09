@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,maximum-scale=2">
   <meta name="description" content="v-treeview : A treeview component for Vue.js2">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="v-treeview/assets/css/style.css?v=7196dd5b8fdf845f3f282f4ba99bb9853ddea01f">
+  <link rel="stylesheet" type="text/css" media="screen" href="./style.css">
 
   <!-- Begin Jekyll SEO tag v2.3.0 -->
   <title>v-treeview | A treeview component for Vue.js2</title>
@@ -44,30 +44,28 @@
   <!-- HEADER -->
   <div id="header_wrap" class="outer">
     <header class="inner">
+        <p><a href="https://www.npmjs.com/package/v-treeview"><img src="https://img.shields.io/npm/v/v-treeview.svg" alt="npm" /></a>
+          <a href="https://www.npmjs.com/package/v-treeview"><img src="https://img.shields.io/npm/dm/v-treeview.svg" alt="npm" /></a>
+          <a href="https://github.com/hyounoo/v-treeview/stargazers"><img src="https://img.shields.io/github/stars/hyounoo/v-treeview.svg?style=social&amp;label=Stars&amp;style=for-the-badge" alt="GitHub stars" /></a>
+          <a href="https://github.com/hyounoo/v-treeview/network"><img src="https://img.shields.io/github/forks/hyounoo/v-treeview.svg?style=social&amp;label=Fork&amp;style=for-the-badge" alt="GitHub forks" /></a>
+          <a href="https://travis-ci.org/hyounoo/v-treeview"><img src="https://travis-ci.org/hyounoo/v-treeview.svg?branch=master" alt="Build Status" /></a>
+          <a href=""><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license" /></a></p>
       <a id="forkme_banner" href="https://github.com/hyounoo/v-treeview">View on GitHub</a>
 
       <h1 id="project_title">v-treeview</h1>
       <h2 id="project_tagline">A treeview component for Vue.js2</h2>
-
-
+      
     </header>
   </div>
 
   <!-- MAIN CONTENT -->
   <div id="main_content_wrap" class="outer">
-    <section id="main_content" class="inner">
-      <h1 id="v-treeview">v-treeview</h1>
-      <p>A treeview component for Vue.js2</p>
-
+    <section id="main_content" class="inner">        
+        <h3 id="demo">Demo</h3>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>        
+        <div id="app"></div>
       <p>Support customizable context menu and tree types, configurable font awesom icon, depth control</p>
-
-      <p><a href="https://www.npmjs.com/package/v-treeview"><img src="https://img.shields.io/npm/v/v-treeview.svg" alt="npm" /></a>
-        <a href="https://www.npmjs.com/package/v-treeview"><img src="https://img.shields.io/npm/dm/v-treeview.svg" alt="npm" /></a>
-        <a href="https://github.com/hyounoo/v-treeview/stargazers"><img src="https://img.shields.io/github/stars/hyounoo/v-treeview.svg?style=social&amp;label=Stars&amp;style=for-the-badge" alt="GitHub stars" /></a>
-        <a href="https://github.com/hyounoo/v-treeview/network"><img src="https://img.shields.io/github/forks/hyounoo/v-treeview.svg?style=social&amp;label=Fork&amp;style=for-the-badge" alt="GitHub forks" /></a>
-        <a href="https://travis-ci.org/hyounoo/v-treeview"><img src="https://travis-ci.org/hyounoo/v-treeview.svg?branch=master" alt="Build Status" /></a>
-        <a href=""><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license" /></a></p>
-
+        
       <h3 id="how-to-use">How to use</h3>
 
       <p>Step1: install v-treeview</p>
@@ -107,36 +105,22 @@
       <p>Step4: In your index.html, add fontawesome CDN</p>
       <div class="highlighter-rouge">
         <div class="highlight">
-          <pre class="highlight">
-            <code>&lt;script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"&gt;&lt;/script&gt;
-            </code>
-          </pre>
+          <pre class="highlight"><code>&lt;script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"&gt;&lt;/script&gt;</code></pre>
         </div>
       </div>
-
-      <h3 id="demo">Demo</h3>
-
-      <div class="highlighter-rouge">
-        <pre class="highlight">
-          <div id="app"></div>
-        </pre>
-      </div>
-
+      
+      <h3 id="demo">Example</h3>
       <script src="./dev/build.js"></script>
       <p><code class="highlighter-rouge">Html</code></p>
       <div class="highlighter-rouge">
         <div class="highlight">
-          <pre class="highlight">
-            <code>  &lt;v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected"&gt;&lt;/v-treeview&gt;
-            </code>
-          </pre>
+          <pre class="highlight"><code>&lt;v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected"&gt;&lt;/v-treeview&gt;</code></pre>
         </div>
       </div>
       <p><code class="highlighter-rouge">JS</code></p>
       <div class="highlighter-rouge">
         <div class="highlight">
-          <pre class="highlight">
-            <code>import VTreeview from "../src/index.js";
+          <pre class="highlight" style="height:300px;"><code>import VTreeview from "../src/index.js";
 
 export default {
   data() {
