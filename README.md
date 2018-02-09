@@ -15,17 +15,19 @@ A treeview component for Vue.js2
 Step1: install v-treeview
 ```
 npm install v-treeview --save
+```
 
 Step2： In your main.js
 ```
 import VTreeview from 'v-treeview'
 
 Vue.use(VTreeview)
+```
 
 Step3: In your index.html, add fontawesome CDN
 ```
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
+```
 
 
 
@@ -272,10 +274,8 @@ export default {
     },
     selected(node) {
       this.selectedNode = node;
-
       this.contextItems = [];
       var typeRule = this.getTypeRule(this.selectedNode.model.type);
-
       typeRule.valid_children.map(function(type, key) {
         var childType = this.getTypeRule(type);
         var item = {
@@ -290,7 +290,6 @@ export default {
       this.contextItems.push({ title: "Remove", icon: "far fa-trash-alt" });
     }
   },
-
   components: {
     VTreeview
   }
