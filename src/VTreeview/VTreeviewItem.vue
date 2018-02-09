@@ -8,7 +8,7 @@
     </span>
     <input type="radio" name="rad" v-model="checked" :id="model.id" :value="model.id">        
     <label v-show="!edit" class="tree-text" :for="model.id" @click="toggle" @contextmenu.prevent="showContextMenu" key="label">{{model.text}}</label>    
-    <input v-show="edit" ref="title" class="tree-text" v-model="model.text" :placeholder="model.text" key="input" @blur="blur" @keyup.enter="blur" v-focus>
+    <input v-show="edit" ref="title" class="tree-text" v-model="model.text" :placeholder="model.text" key="input" @blur="blur" @keyup.enter="blur">
     <div class="tree-children">
       <ul v-show="open" v-if="isFolder">
         <v-treeview-item v-for="child in model.children" :key="child.id" 
@@ -21,18 +21,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-Vue.directive("focus", {
-  inserted: function(el) {
-    el.focus();
-  },
-  update: function(el) {
-    Vue.nextTick(function() {
-      el.focus();
-    });
-  }
-});
-
 export default {
   name: "v-treeview-item",
   props: ["model", "treeTypes", "openAll"],
