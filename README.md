@@ -23,13 +23,13 @@ import VTreeview from "v-treeview"
 ```
 
 Step3: In your export script
-
+```
 export default {
-  data() { ..     
+  data() { ...     
   },
-  computed: { ..
+  computed: { ...
   },
-  methods: { ..
+  methods: { ...
   },  
   components: {
     VTreeview
