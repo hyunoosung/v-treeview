@@ -3,12 +3,12 @@
     <div id=v-treeview>
       <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected"></v-treeview>
     </div>
-    <div>
+    <div id="value">
       <p>Open all: <input type="checkbox" v-model="openAll"></p>
       <p>Selected node model: <span v-if="selectedNode">{{selectedNode.model.text}}</span></p>
-      <textarea rows="10" cols="80" v-model="selectedNodeModel"  style="width:300px"/>
+      <textarea rows="10" cols="80" v-model="selectedNodeModel" />
       <p>Context item per node:</p>
-      <textarea rows="10" cols="80" v-model="contextMenu"  style="width:300px"/>
+      <textarea rows="10" cols="80" v-model="contextMenu"/>
     </div>
   </div>
 </template>
@@ -282,5 +282,10 @@ export default {
 <style scoped>
 div{
   background: white;
+}
+
+#value{
+  width:100%;
+  padding: 5px;
 }
 </style>
