@@ -1,6 +1,6 @@
 {
   "name": "v-treeview",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A treeview component for Vue.js 2.0",
   "main": "./dist/v-treeview.min.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "test:watch": "karma start --single-run=false",
     "lint": "eslint src --ext=js,vue || exit 0",
     "dev": "webpack-dev-server --content-base ./dev --env=webpack.dev --open --hot",
-    "dist": "webpack --env=webpack.dist"
+    "dist": "webpack --env=webpack.dist",
+    "deploy": "webpack --env=webpack.test"
   },
   "repository": {
     "type": "git",
