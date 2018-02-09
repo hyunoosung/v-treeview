@@ -1,6 +1,15 @@
 <template>
-  <div>
-    <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected"></v-treeview>
+  <div class="row">        
+    <div id=v-treeview>
+      <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected"></v-treeview>
+    </div>
+    <div>
+      <p>Open all: <input type="checkbox" v-model="openAll"></p>
+      <p>Selected node model: <span v-if="selectedNode">{{selectedNode.model.text}}</span></p>
+      <textarea rows="10" cols="80" v-model="selectedNodeModel" />
+      <p>Context item per node:</p>
+      <textarea rows="10" cols="80" v-model="contextMenu" />
+    </div>
   </div>
 </template>
 <script type="text/javascript">
@@ -67,19 +76,19 @@ export default {
       ],
       treeData: [
         {
-          id: 100767.0,
+          id: 100767,
           text: "Employee",
           type: "FMM_EMPLOYEE",
           count: 0,
           children: [
             {
-              id: 100811.0,
+              id: 100811,
               text: "Basic plan",
               type: "Basic",
               count: 0,
               children: [
                 {
-                  id: 101161.0,
+                  id: 101161,
                   text: "Top-up",
                   type: "Top-up",
                   count: 152,
@@ -88,14 +97,14 @@ export default {
               ]
             },
             {
-              id: 100812.0,
+              id: 100812,
               text: "Basic plan",
               type: "Basic",
               count: 0,
               children: []
             },
             {
-              id: 101162.0,
+              id: 101162,
               text: "This Top-up can be at level 2",
               type: "Top-up",
               count: 152,
@@ -104,7 +113,7 @@ export default {
           ]
         },
         {
-          id: 100768.0,
+          id: 100768,
           text: "Spouse",
           type: "FMM_SPOUSE",
           count: 0,
@@ -142,19 +151,19 @@ export default {
           ]
         },
         {
-          id: 100769.0,
+          id: 100769,
           text: "Child",
           type: "FMM_CHILD",
           count: 0,
           children: [
             {
-              id: 100815.0,
+              id: 100815,
               text: "Basic plan",
               type: "Basic",
               count: 0,
               children: [
                 {
-                  id: 101165.0,
+                  id: 101165,
                   text: "Top-up",
                   type: "Top-up",
                   count: 152,
@@ -163,13 +172,13 @@ export default {
               ]
             },
             {
-              id: 100816.0,
+              id: 100816,
               text: "Basic plan",
               type: "Basic",
               count: 0,
               children: [
                 {
-                  id: 101166.0,
+                  id: 101166,
                   text: "Top-up",
                   type: "Top-up",
                   count: 0,
@@ -180,19 +189,19 @@ export default {
           ]
         },
         {
-          id: 100770.0,
+          id: 100770,
           text: "Parents",
           type: "FMM_PARENT",
           count: 0,
           children: [
             {
-              id: 100817.0,
+              id: 100817,
               text: "Basic plan",
               type: "Basic",
               count: 0,
               children: [
                 {
-                  id: 101167.0,
+                  id: 101167,
                   text: "Top-up",
                   type: "Top-up",
                   count: 124,
@@ -257,9 +266,28 @@ export default {
       this.contextItems.push({ title: "Remove", icon: "far fa-trash-alt" });
     }
   },
-
+  computed: {
+    contextMenu(){
+      return JSON.stringify(this.contextItems);
+    },
+    selectedNodeModel(){
+      return this.selectedNode ? JSON.stringify(this.selectedNode.model) : null;
+    }
+  },
   components: {
     VTreeview
   }
 };
 </script>
+<style scoped>
+#contatiner{
+  display: inline-block;
+}
+  #v-treeview{
+    width: 50%;
+  }
+
+  #result{
+    width: 50%;
+  }
+</style>
