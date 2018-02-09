@@ -1,5 +1,6 @@
 # v-treeview
 A treeview component for Vue.js2
+Support customizable context menu and tree types, configurable font awesom icon, depth control.
 
 [![npm](https://img.shields.io/npm/v/v-treeview.svg )](https://www.npmjs.com/package/v-treeview)
 [![npm](https://img.shields.io/npm/dm/v-treeview.svg)](https://www.npmjs.com/package/v-treeview)
@@ -8,7 +9,6 @@ A treeview component for Vue.js2
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 # Version: 0.0.9
-
 
 ### How to use
 
