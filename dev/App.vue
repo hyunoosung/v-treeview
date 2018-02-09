@@ -285,7 +285,7 @@ div{
 }
 
 .value{
-  width:100%;
+  width:90%;
   padding: 5px;
 }
 </style>
