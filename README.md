@@ -10,48 +10,6 @@ A treeview component for Vue.js2
 # Version: 0.0.8
 
 
-### Node Property
-| Parameters | Description | Type | Optional values | Default value |
-|---------- |-------- |---------- |---------- |---------- |
-|id | when this property is empty, the title property will be used as the key | String | Y | -|
-|title | node name | String | N | -|
-|children | child nodes | Array[object] | Y | -|
-|async | whether to load child nodes asynchronously | Boolean | Y | false |
-|expanded | node Expansion | Boolean | Y | false |
-|halfcheck | whether the node is half optional (subordinate selected) | Boolean | Y | false |
-|visible | is the node visible | Boolean | Y | true |
-|selected | whether the node is selected | Boolean | Y | false |
-|checked | whether the node check box is selected | Boolean | Y | false |
-|nocheck | specifies that a node does not render check box when multiple checkboxes are open | Boolean | Y | false |
-|loading | open load effect | Boolean | Y | false |
-|chkDisabled | disable the function of a check box for a node | Boolean | Y | false |
-
-### Tree Property
-| Parameters | Description | Type | Optional values | default value |
-|---------- |-------- |---------- |---------- |---------- |
-|data | tree Data Source | Array[object] | N | -|
-|multiple | turn on Check mode | Boolean | Y | false |
-|tpl | custom templates | JSX | Y | false |
-|halfcheck | turn on semi-select mode | Boolean | Y | select all |
-|scoped | quarantine node Selected state | Boolean | Y | false |
-|draggable | support drag? | Boolean | Y | false |
-|dragafterexpanded | ro expand after dragging | Boolean | Y | true |
-
-### method
-| Method name | Description | Parameters |
-|---------- |-------- |---------- |
-| getSelectedNodes | returns an array of currently selected nodes | - |
-| getCheckedNodes | returns the array of nodes selected by the current check box | - |
-| getNodes |the options objects such as {selected:true}, if empty, use {} | options|
-| searchNodes | filter:function/string (if it is a function, it will eventually return a Boolean type) |node|
-
-### events
-| Event name | Description | Parameters |
-|---------- |-------- |---------- |
-| node-click | click the node to trigger the event | node: Object |
-| node-mouse-over | over the node to trigger the event | node: Object |
-| async-load-nodes | event used to implement asynchronous loading | node: Object |
-| drag-node-end | drag node end trigger the event | {dragNode: Object, targetNode: Object} |
 ### How to use
 
 Step1: install v-treeview
