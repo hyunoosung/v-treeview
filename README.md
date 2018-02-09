@@ -4,7 +4,7 @@ A treeview component for Vue.js2
 [![npm](https://img.shields.io/npm/v/v-treeview.svg )](https://www.npmjs.com/package/v-treeview)
 [![npm](https://img.shields.io/npm/dm/v-treeview.svg)](https://www.npmjs.com/package/v-treeview)
 [![GitHub stars](https://img.shields.io/github/stars/hyounoo/v-treeview.svg?style=social&label=Stars&style=for-the-badge)](https://github.com/hyounoo/v-treeview/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/drakefang/v-treeview.svg?style=social&label=Fork&style=for-the-badge)](https://github.com/hyounoo/v-treeview/network)
+[![GitHub forks](https://img.shields.io/github/forks/hyounoo/v-treeview.svg?style=social&label=Fork&style=for-the-badge)](https://github.com/hyounoo/v-treeview/network)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 # Version: 0.0.9
