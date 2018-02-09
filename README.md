@@ -7,7 +7,7 @@ A treeview component for Vue.js2
 [![GitHub forks](https://img.shields.io/github/forks/drakefang/v-treeview.svg?style=social&label=Fork&style=for-the-badge)](https://github.com/drakefang/v-treeview/network)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
-# Version: 0.0.8 ((https://github.com/drakefang/v-treeview/blob/master/READMEME_KR.md))
+# Version: 0.0.8
 
 
 ### Node Property
@@ -63,7 +63,12 @@ Step2： In your main.js
 import VTreeview from 'v-treeview'
 
 Vue.use(VTreeview)
+
+Step3: In your index.html, add fontawesome CDN
 ```
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
 
 
 ### Demo
