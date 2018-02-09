@@ -9,7 +9,7 @@ Support customizable context menu and tree types, configurable font awesom icon,
 [![Build Status](https://travis-ci.org/hyounoo/v-treeview.svg?branch=master)](https://travis-ci.org/hyounoo/v-treeview)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
-# Version: 0.1.1
+# Version: 0.1.3
 
 ### How to use
 
