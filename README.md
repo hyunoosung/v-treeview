@@ -7,7 +7,7 @@ A treeview component for Vue.js2
 [![GitHub forks](https://img.shields.io/github/forks/drakefang/v-treeview.svg?style=social&label=Fork&style=for-the-badge)](https://github.com/drakefang/v-treeview/network)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
-# Version: 0.0.8
+# Version: 0.0.9
 
 
 ### How to use
