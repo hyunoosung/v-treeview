@@ -17,14 +17,27 @@ Step1: install v-treeview
 npm install v-treeview --save
 ```
 
-Step2： In your main.js
+Step2： In your vue component script import v-treeview
 ```
-import VTreeview from 'v-treeview'
-
-Vue.use(VTreeview)
+import VTreeview from "v-treeview"
 ```
 
-Step3: In your index.html, add fontawesome CDN
+Step3: In your export script
+
+export default {
+  data() { ...    
+  },
+  computed: { ...
+  },
+  methods: { ...
+  },  
+  components: {
+    VTreeview
+  }
+};
+```
+
+Step4: In your index.html, add fontawesome CDN
 ```
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 ```
