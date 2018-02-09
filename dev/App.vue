@@ -280,14 +280,7 @@ export default {
 };
 </script>
 <style scoped>
-#contatiner{
-  display: inline-block;
+div{
+  background: white;
 }
-  #v-treeview{
-    width: 50%;
-  }
-
-  #result{
-    width: 50%;
-  }
 </style>

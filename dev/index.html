@@ -1,12 +1,412 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Vue Treeview</title>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="./dev/build.js"></script>
-  </body>
+<html lang="en-US">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=2">
+  <meta name="description" content="v-treeview : A treeview component for Vue.js2">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="https://hyounoo.github.io/v-treeview/assets/css/style.css?v=7196dd5b8fdf845f3f282f4ba99bb9853ddea01f">
+
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+  <title>v-treeview | A treeview component for Vue.js2</title>
+  <meta property="og:title" content="v-treeview" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="A treeview component for Vue.js2" />
+  <meta property="og:description" content="A treeview component for Vue.js2" />
+  <link rel="canonical" href="https://hyounoo.github.io/v-treeview/" />
+  <meta property="og:url" content="https://hyounoo.github.io/v-treeview/" />
+  <meta property="og:site_name" content="v-treeview" />
+  <script type="application/ld+json">
+    {
+      "name": "v-treeview",
+      "description": "A treeview component for Vue.js2",
+      "author": null,
+      "@type": "WebSite",
+      "url": "https://hyounoo.github.io/v-treeview/",
+      "image": null,
+      "publisher": null,
+      "headline": "v-treeview",
+      "dateModified": null,
+      "datePublished": null,
+      "sameAs": null,
+      "mainEntityOfPage": null,
+      "@context": "http://schema.org"
+    }
+  </script>
+  <!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/hyounoo/v-treeview">View on GitHub</a>
+
+      <h1 id="project_title">v-treeview</h1>
+      <h2 id="project_tagline">A treeview component for Vue.js2</h2>
+
+
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+      <h1 id="v-treeview">v-treeview</h1>
+      <p>A treeview component for Vue.js2</p>
+
+      <p>Support customizable context menu and tree types, configurable font awesom icon, depth control</p>
+
+      <p><a href="https://www.npmjs.com/package/v-treeview"><img src="https://img.shields.io/npm/v/v-treeview.svg" alt="npm" /></a>
+        <a href="https://www.npmjs.com/package/v-treeview"><img src="https://img.shields.io/npm/dm/v-treeview.svg" alt="npm" /></a>
+        <a href="https://github.com/hyounoo/v-treeview/stargazers"><img src="https://img.shields.io/github/stars/hyounoo/v-treeview.svg?style=social&amp;label=Stars&amp;style=for-the-badge" alt="GitHub stars" /></a>
+        <a href="https://github.com/hyounoo/v-treeview/network"><img src="https://img.shields.io/github/forks/hyounoo/v-treeview.svg?style=social&amp;label=Fork&amp;style=for-the-badge" alt="GitHub forks" /></a>
+        <a href="https://travis-ci.org/hyounoo/v-treeview"><img src="https://travis-ci.org/hyounoo/v-treeview.svg?branch=master" alt="Build Status" /></a>
+        <a href=""><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license" /></a></p>
+
+      <h3 id="how-to-use">How to use</h3>
+
+      <p>Step1: install v-treeview</p>
+      <div class="highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code>npm install v-treeview --save
+</code></pre>
+        </div>
+      </div>
+
+      <p>Step2： In your vue component script import v-treeview</p>
+      <div class="highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code>import VTreeview from "v-treeview"
+</code></pre>
+        </div>
+      </div>
+
+      <p>Step3: In your export script</p>
+      <div class="highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code>export default {
+  data() { ...     
+  },
+  computed: { ...
+  },
+  methods: { ...
+  },  
+  components: {
+    VTreeview
+  }
+};
+</code></pre>
+        </div>
+      </div>
+
+      <p>Step4: In your index.html, add fontawesome CDN</p>
+      <div class="highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight">
+            <code>&lt;script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"&gt;&lt;/script&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <h3 id="demo">Demo</h3>
+
+      <div class="highlighter-rouge">
+        <pre class="highlight">
+          <div id="app"></div>
+        </pre>
+      </div>
+
+      <script src="./dev/build.js"></script>
+      <p><code class="highlighter-rouge">Html</code></p>
+      <div class="highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code>  &lt;v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected"&gt;&lt;/v-treeview&gt;
+</code></pre>
+        </div>
+      </div>
+      <p><code class="highlighter-rouge">JS</code></p>
+      <div class="highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code>import VTreeview from "../src/index.js";
+
+export default {
+  data() {
+    return {
+      openAll: true,
+      treeTypes: [
+        {
+          type: "#",
+          max_children: 6,
+          max_depth: 4,
+          valid_children: [
+            "FMM_EMPLOYEE",
+            "FMM_SPOUSE",
+            "FMM_CHILD",
+            "FMM_SIBLING",
+            "FMM_PARENT",
+            "FMM_PARENT_IN_LAW"
+          ]
+        },
+        {
+          type: "FMM_EMPLOYEE",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_SPOUSE",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_CHILD",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_SIBLING",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_PARENT",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_PARENT_IN_LAW",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "Basic",
+          icon: "far fa-hospital",
+          valid_children: ["Top-up"]
+        },
+        {
+          type: "Top-up",
+          icon: "far fa-plus-square",
+          valid_children: []
+        }
+      ],
+      treeData: [
+        {
+          id: 100767.0,
+          text: "Employee",
+          type: "FMM_EMPLOYEE",
+          count: 0,
+          children: [
+            {
+              id: 100811.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101161.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 152,
+                  children: []
+                }
+              ]
+            },
+            {
+              id: 100812.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: []
+            },
+            {
+              id: 101162.0,
+              text: "This Top-up can be at level 2",
+              type: "Top-up",
+              count: 152,
+              children: []
+            }
+          ]
+        },
+        {
+          id: 100768.0,
+          text: "Spouse",
+          type: "FMM_SPOUSE",
+          count: 0,
+          children: [
+            {
+              id: 100813.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101163.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 152,
+                  children: []
+                }
+              ]
+            },
+            {
+              id: 100814.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101164.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 152,
+                  children: []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 100769.0,
+          text: "Child",
+          type: "FMM_CHILD",
+          count: 0,
+          children: [
+            {
+              id: 100815.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101165.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 152,
+                  children: []
+                }
+              ]
+            },
+            {
+              id: 100816.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101166.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 0,
+                  children: []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 100770.0,
+          text: "Parents",
+          type: "FMM_PARENT",
+          count: 0,
+          children: [
+            {
+              id: 100817.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101167.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 124,
+                  children: []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      contextItems: [],
+      selectedNode: null
+    };
+  },
+  methods: {
+    getTypeRule(type) {
+      var typeRule = this.treeTypes.filter(t =&gt; t.type == type)[0];
+      return typeRule;
+    },
+    contextSelected(command) {
+      switch (command) {
+        case "Create Basic":
+          var node = {
+            text: "New Basic Plan",
+            type: "Basic",
+            children: []
+          };
+          this.selectedNode.addNode(node);
+          break;
+        case "Create Top-up":
+          var node = {
+            text: "New Top-up",
+            type: "Top-up",
+            children: []
+          };
+          this.selectedNode.addNode(node);          
+          break;
+        case "Rename":
+          this.selectedNode.editName();
+          break;
+        case "Remove":
+          break;
+      }
+    },
+    selected(node) {
+      this.selectedNode = node;
+      this.contextItems = [];
+      var typeRule = this.getTypeRule(this.selectedNode.model.type);
+      typeRule.valid_children.map(function(type, key) {
+        var childType = this.getTypeRule(type);
+        var item = {
+          title: "Create " + type,
+          icon: childType.icon,
+          type: childType
+        };
+        this.contextItems.push(item);
+      }, this);
+
+      this.contextItems.push({ title: "Rename", icon: "far fa-edit" });
+      this.contextItems.push({ title: "Remove", icon: "far fa-trash-alt" });
+    }
+  },
+  components: {
+    VTreeview
+  }
+};
+</code></pre>
+        </div>
+      </div>
+
+
+    </section>
+  </div>
+
+  <!-- FOOTER  -->
+  <div id="footer_wrap" class="outer">
+    <footer class="inner">
+
+      <p class="copyright">v-treeview maintained by <a href="https://github.com/hyounoo">hyounoo</a></p>
+
+      <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+    </footer>
+  </div>
+
+
+</body>
+
 </html>
