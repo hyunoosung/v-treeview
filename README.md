@@ -6,6 +6,7 @@ Support customizable context menu and tree types, configurable font awesom icon,
 [![npm](https://img.shields.io/npm/dm/v-treeview.svg)](https://www.npmjs.com/package/v-treeview)
 [![GitHub stars](https://img.shields.io/github/stars/hyounoo/v-treeview.svg?style=social&label=Stars&style=for-the-badge)](https://github.com/hyounoo/v-treeview/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/hyounoo/v-treeview.svg?style=social&label=Fork&style=for-the-badge)](https://github.com/hyounoo/v-treeview/network)
+[![Build Status](https://travis-ci.org/hyounoo/v-treeview.svg?branch=master)](https://travis-ci.org/hyounoo/v-treeview)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 # Version: 0.1.1
