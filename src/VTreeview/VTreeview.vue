@@ -38,8 +38,8 @@ export default {
         e.preventDefault();
         this.mouseEvent = {
           button: e.button,
-          layerX: e.layerX,
-          layerY: e.layerY
+          pageX: e.pageX,
+          pageY: e.pageY
         };
       }
     }
