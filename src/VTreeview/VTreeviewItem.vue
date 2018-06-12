@@ -13,7 +13,7 @@
       <ul v-show="open" v-if="isFolder">
         <v-treeview-item v-for="child in model.children" :key="child.id" 
         :model="child" :treeTypes="treeTypes" :openAll="openAll" @addNode="addNode"
-        @selected="selected" :searchText="searchText">
+        @selected="selected" :searchText="searchText" @openTree="openTree">
         </v-treeview-item>      
       </ul>
     </div>
@@ -39,8 +39,16 @@ export default {
       return this.getTypeRule(this.model.type).icon;
     },
     isSearchText() {
-      if(this.searchText != "")
-      return this.model.text.toLowerCase().includes(this.searchText.toLowerCase());
+      if(this.searchText != ""){
+        if(this.model.text.toLowerCase().includes(this.searchText.toLowerCase()))
+        {
+          this.open = true;
+          this.$emit("openTree");
+          return true;
+        }
+        else
+          return false;
+      }
     }
   },
   methods: {
@@ -55,6 +63,10 @@ export default {
       this.checked = null;
       this.checked = this.model.id;
       this.$emit("selected", node);
+    },
+    openTree(node) {
+      this.open = true;
+      this.$emit("openTree", node);
     },
     addNode(newNode) {
       var typeRule = this.getTypeRule(this.model.type);
