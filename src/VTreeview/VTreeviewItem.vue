@@ -7,13 +7,13 @@
       <i v-if="icon" class="far" :class="icon" ></i>
     </span>
     <input type="radio" name="rad" v-model="checked" :id="model.id" :value="model.id">        
-    <label v-show="!edit" class="tree-text" :for="model.id" @click="toggle" @contextmenu.prevent="showContextMenu" key="label">{{model.text}}</label>    
+    <label v-show="!edit" class="tree-text" :class="{ 'searched-text': isSearchText }" :for="model.id" @click="toggle" @contextmenu.prevent="showContextMenu" key="label">{{model.text}}</label>    
     <input v-show="edit" ref="title" class="tree-text" v-model="model.text" :placeholder="model.text" key="input" @blur="blur" @keyup.enter="blur">
     <div class="tree-children">
       <ul v-show="open" v-if="isFolder">
         <v-treeview-item v-for="child in model.children" :key="child.id" 
         :model="child" :treeTypes="treeTypes" :openAll="openAll" @addNode="addNode"
-        @selected="selected">
+        @selected="selected" :searchText="searchText" @openTree="openTree">
         </v-treeview-item>      
       </ul>
     </div>
@@ -23,7 +23,7 @@
 <script>
 export default {
   name: "v-treeview-item",
-  props: ["model", "treeTypes", "openAll"],
+  props: ["model", "treeTypes", "openAll", "searchText"],
   data() {
     return {
       open: false,
@@ -37,6 +37,18 @@ export default {
     },
     icon() {
       return this.getTypeRule(this.model.type).icon;
+    },
+    isSearchText() {
+      if(this.searchText != ""){
+        if(this.model.text.toLowerCase().includes(this.searchText.toLowerCase()))
+        {
+          this.open = true;
+          this.$emit("openTree");
+          return true;
+        }
+        else
+          return false;
+      }
     }
   },
   methods: {
@@ -51,6 +63,10 @@ export default {
       this.checked = null;
       this.checked = this.model.id;
       this.$emit("selected", node);
+    },
+    openTree(node) {
+      this.open = true;
+      this.$emit("openTree", node);
     },
     addNode(newNode) {
       var typeRule = this.getTypeRule(this.model.type);
@@ -131,5 +147,10 @@ ul label:before {
   left: 0;
   position: absolute;
   right: 0;
+}
+
+.searched-text {
+  font-style: italic;
+  color: #cc0000;
 }
 </style>

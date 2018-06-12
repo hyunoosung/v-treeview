@@ -2,8 +2,8 @@
 <div @mouseup.prevent="mousedown">
     <ul>
       <v-treeview-item class="v-treeview-item" v-for="item in value" :key="item.id" 
-        :model="item" :treeTypes="treeTypes" :openAll="openAll"
-        @selected="selected"></v-treeview-item>            
+        :model="item" :treeTypes="treeTypes" :openAll="openAll" :searchText="searchText"
+        @selected="selected" @openTree="openTree"></v-treeview-item>            
     </ul>
     <v-context :show="showContext" :contextItems="contextItems" :mouseEvent="mouseEvent" @contextSelected="contextSelected" ></v-context>
   </div>
@@ -14,7 +14,7 @@ import VTreeviewItem from "./VTreeviewItem.vue";
 import VContext from "../VContext/VContext.vue";
 
 export default {
-  props: ["value", "treeTypes", "openAll", "contextItems", "editName"],
+  props: ["value", "treeTypes", "openAll", "contextItems", "editName", "searchText"],
   name: "v-treeview",
   data() {
     return {
@@ -29,6 +29,9 @@ export default {
     },
     contextSelected(title){
       this.$emit("contextSelected", title);
+    },
+    openTree(node) {
+      this.$emit("openTree", node);
     },
     mousedown(e) {
       if (this.contextItems) {
