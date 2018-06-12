@@ -1,7 +1,11 @@
 <template>
-  <div class="row">        
+  <div class="row">    
+    <div>
+      <input v-model="searchText">
+      
+    </div>    
     <div id=v-treeview>
-      <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected"></v-treeview>
+      <v-treeview v-model="treeData" :treeTypes="treeTypes" @selected="selected" :openAll="openAll" :contextItems="contextItems" @contextSelected="contextSelected" :searchText="searchText"></v-treeview>
     </div>
     <div>
       <p>Open all: <input type="checkbox" v-model="openAll"></p>
@@ -13,7 +17,7 @@
   </div>
 </template>
 <script type="text/javascript">
-import VTreeview from "../src/index.js";
+import VTreeview from '../src/index.js'
 
 export default {
   data() {
@@ -21,76 +25,76 @@ export default {
       openAll: true,
       treeTypes: [
         {
-          type: "#",
+          type: '#',
           max_children: 6,
           max_depth: 4,
           valid_children: [
-            "FMM_EMPLOYEE",
-            "FMM_SPOUSE",
-            "FMM_CHILD",
-            "FMM_SIBLING",
-            "FMM_PARENT",
-            "FMM_PARENT_IN_LAW"
+            'FMM_EMPLOYEE',
+            'FMM_SPOUSE',
+            'FMM_CHILD',
+            'FMM_SIBLING',
+            'FMM_PARENT',
+            'FMM_PARENT_IN_LAW'
           ]
         },
         {
-          type: "FMM_EMPLOYEE",
-          icon: "far fa-user",
-          valid_children: ["Basic", "Top-up"]
+          type: 'FMM_EMPLOYEE',
+          icon: 'far fa-user',
+          valid_children: ['Basic', 'Top-up']
         },
         {
-          type: "FMM_SPOUSE",
-          icon: "far fa-user",
-          valid_children: ["Basic", "Top-up"]
+          type: 'FMM_SPOUSE',
+          icon: 'far fa-user',
+          valid_children: ['Basic', 'Top-up']
         },
         {
-          type: "FMM_CHILD",
-          icon: "far fa-user",
-          valid_children: ["Basic", "Top-up"]
+          type: 'FMM_CHILD',
+          icon: 'far fa-user',
+          valid_children: ['Basic', 'Top-up']
         },
         {
-          type: "FMM_SIBLING",
-          icon: "far fa-user",
-          valid_children: ["Basic", "Top-up"]
+          type: 'FMM_SIBLING',
+          icon: 'far fa-user',
+          valid_children: ['Basic', 'Top-up']
         },
         {
-          type: "FMM_PARENT",
-          icon: "far fa-user",
-          valid_children: ["Basic", "Top-up"]
+          type: 'FMM_PARENT',
+          icon: 'far fa-user',
+          valid_children: ['Basic', 'Top-up']
         },
         {
-          type: "FMM_PARENT_IN_LAW",
-          icon: "far fa-user",
-          valid_children: ["Basic", "Top-up"]
+          type: 'FMM_PARENT_IN_LAW',
+          icon: 'far fa-user',
+          valid_children: ['Basic', 'Top-up']
         },
         {
-          type: "Basic",
-          icon: "far fa-hospital",
-          valid_children: ["Top-up"]
+          type: 'Basic',
+          icon: 'far fa-hospital',
+          valid_children: ['Top-up']
         },
         {
-          type: "Top-up",
-          icon: "far fa-plus-square",
+          type: 'Top-up',
+          icon: 'far fa-plus-square',
           valid_children: []
         }
       ],
       treeData: [
         {
           id: 100767,
-          text: "Employee",
-          type: "FMM_EMPLOYEE",
+          text: 'Employee',
+          type: 'FMM_EMPLOYEE',
           count: 0,
           children: [
             {
               id: 100811,
-              text: "Basic plan",
-              type: "Basic",
+              text: 'Basic plan',
+              type: 'Basic',
               count: 0,
               children: [
                 {
                   id: 101161,
-                  text: "Top-up",
-                  type: "Top-up",
+                  text: 'Top-up',
+                  type: 'Top-up',
                   count: 152,
                   children: []
                 }
@@ -98,15 +102,15 @@ export default {
             },
             {
               id: 100812,
-              text: "Basic plan",
-              type: "Basic",
+              text: 'Basic plan',
+              type: 'Basic',
               count: 0,
               children: []
             },
             {
               id: 101162,
-              text: "This Top-up can be at level 2",
-              type: "Top-up",
+              text: 'This Top-up can be at level 2',
+              type: 'Top-up',
               count: 152,
               children: []
             }
@@ -114,20 +118,20 @@ export default {
         },
         {
           id: 100768,
-          text: "Spouse",
-          type: "FMM_SPOUSE",
+          text: 'Spouse',
+          type: 'FMM_SPOUSE',
           count: 0,
           children: [
             {
               id: 100813.0,
-              text: "Basic plan",
-              type: "Basic",
+              text: 'Basic plan',
+              type: 'Basic',
               count: 0,
               children: [
                 {
                   id: 101163.0,
-                  text: "Top-up",
-                  type: "Top-up",
+                  text: 'Top-up',
+                  type: 'Top-up',
                   count: 152,
                   children: []
                 }
@@ -135,14 +139,14 @@ export default {
             },
             {
               id: 100814.0,
-              text: "Basic plan",
-              type: "Basic",
+              text: 'Basic plan',
+              type: 'Basic',
               count: 0,
               children: [
                 {
                   id: 101164.0,
-                  text: "Top-up",
-                  type: "Top-up",
+                  text: 'Top-up',
+                  type: 'Top-up',
                   count: 152,
                   children: []
                 }
@@ -152,20 +156,20 @@ export default {
         },
         {
           id: 100769,
-          text: "Child",
-          type: "FMM_CHILD",
+          text: 'Child',
+          type: 'FMM_CHILD',
           count: 0,
           children: [
             {
               id: 100815,
-              text: "Basic plan",
-              type: "Basic",
+              text: 'Basic plan',
+              type: 'Basic',
               count: 0,
               children: [
                 {
                   id: 101165,
-                  text: "Top-up",
-                  type: "Top-up",
+                  text: 'Top-up',
+                  type: 'Top-up',
                   count: 152,
                   children: []
                 }
@@ -173,14 +177,14 @@ export default {
             },
             {
               id: 100816,
-              text: "Basic plan",
-              type: "Basic",
+              text: 'Basic plan',
+              type: 'Basic',
               count: 0,
               children: [
                 {
                   id: 101166,
-                  text: "Top-up",
-                  type: "Top-up",
+                  text: 'Top-up',
+                  type: 'Top-up',
                   count: 0,
                   children: []
                 }
@@ -190,20 +194,20 @@ export default {
         },
         {
           id: 100770,
-          text: "Parents",
-          type: "FMM_PARENT",
+          text: 'Parents',
+          type: 'FMM_PARENT',
           count: 0,
           children: [
             {
               id: 100817,
-              text: "Basic plan",
-              type: "Basic",
+              text: 'Basic plan',
+              type: 'Basic',
               count: 0,
               children: [
                 {
                   id: 101167,
-                  text: "Top-up",
-                  type: "Top-up",
+                  text: 'Top-up',
+                  type: 'Top-up',
                   count: 124,
                   children: []
                 }
@@ -213,79 +217,80 @@ export default {
         }
       ],
       contextItems: [],
-      selectedNode: null
-    };
+      selectedNode: null,
+      searchText: null
+    }
   },
   methods: {
     getTypeRule(type) {
-      var typeRule = this.treeTypes.filter(t => t.type == type)[0];
-      return typeRule;
+      var typeRule = this.treeTypes.filter(t => t.type == type)[0]
+      return typeRule
     },
     contextSelected(command) {
       switch (command) {
-        case "Create Basic":
+        case 'Create Basic':
           var node = {
-            text: "New Basic Plan",
-            type: "Basic",
+            text: 'New Basic Plan',
+            type: 'Basic',
             children: []
-          };
-          this.selectedNode.addNode(node);
-          break;
-        case "Create Top-up":
+          }
+          this.selectedNode.addNode(node)
+          break
+        case 'Create Top-up':
           var node = {
-            text: "New Top-up",
-            type: "Top-up",
+            text: 'New Top-up',
+            type: 'Top-up',
             children: []
-          };
-          this.selectedNode.addNode(node);          
-          break;
-        case "Rename":
-          this.selectedNode.editName();
-          break;
-        case "Remove":
-          break;
+          }
+          this.selectedNode.addNode(node)
+          break
+        case 'Rename':
+          this.selectedNode.editName()
+          break
+        case 'Remove':
+          break
       }
     },
     selected(node) {
-      this.selectedNode = node;
+      this.selectedNode = node
 
-      this.contextItems = [];
-      var typeRule = this.getTypeRule(this.selectedNode.model.type);
+      this.contextItems = []
+      var typeRule = this.getTypeRule(this.selectedNode.model.type)
 
       typeRule.valid_children.map(function(type, key) {
-        var childType = this.getTypeRule(type);
+        var childType = this.getTypeRule(type)
         var item = {
-          title: "Create " + type,
+          title: 'Create ' + type,
           icon: childType.icon,
           type: childType
-        };
-        this.contextItems.push(item);
-      }, this);
+        }
+        this.contextItems.push(item)
+      }, this)
 
-      this.contextItems.push({ title: "Rename", icon: "far fa-edit" });
-      this.contextItems.push({ title: "Remove", icon: "far fa-trash-alt" });
+      this.contextItems.push({ title: 'Rename', icon: 'far fa-edit' })
+      this.contextItems.push({ title: 'Remove', icon: 'far fa-trash-alt' })
     }
   },
   computed: {
-    contextMenu(){
-      return JSON.stringify(this.contextItems);
+    contextMenu() {
+      return JSON.stringify(this.contextItems)
     },
-    selectedNodeModel(){
-      return this.selectedNode ? JSON.stringify(this.selectedNode.model) : null;
+    selectedNodeModel() {
+      return this.selectedNode ? JSON.stringify(this.selectedNode.model) : null
     }
   },
   components: {
     VTreeview
   }
-};
+}
 </script>
 <style scoped>
-div{
+div {
   background: white;
 }
 
-.value{
-  width:90%;
+.value {
+  width: 90%;
   padding: 5px;
 }
 </style>
