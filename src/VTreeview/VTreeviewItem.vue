@@ -40,7 +40,7 @@ export default {
     },
     isSearchText() {
       if(this.searchText != ""){
-        if(this.model.text.toLowerCase().includes(this.searchText.toLowerCase()))
+        if(this.model.text.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1)
         {
           this.open = true;
           this.$emit("openTree");
