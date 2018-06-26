@@ -1,6 +1,6 @@
 {
   "name": "v-treeview",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A treeview component for Vue.js 2.0",
   "main": "./dist/v-treeview.min.js",
   "scripts": {
