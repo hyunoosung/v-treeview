@@ -39,13 +39,15 @@ export default {
       return this.getTypeRule(this.model.type).icon
     },
     isSearchText() {
-      if (this.searchText && this.searchText != '') {
-        if (
-          this.model.text.toLowerCase().includes(this.searchText.toLowerCase())
-        ) {
-          this.openTree(this)
-          return true
-        } else return false
+      if(this.searchText != ""){
+        if(this.model.text.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1)
+        {
+          this.open = true;
+          this.$emit("openTree");
+          return true;
+        }
+        else
+          return false;
       }
     }
   },
