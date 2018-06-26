@@ -22,21 +22,21 @@
 
 <script>
 export default {
-  name: "v-treeview-item",
-  props: ["model", "treeTypes", "openAll", "searchText"],
+  name: 'v-treeview-item',
+  props: ['model', 'treeTypes', 'openAll', 'searchText'],
   data() {
     return {
       open: false,
       checked: null,
       edit: false
-    };
+    }
   },
   computed: {
     isFolder() {
-      return this.model.children && this.model.children.length;
+      return this.model.children && this.model.children.length
     },
     icon() {
-      return this.getTypeRule(this.model.type).icon;
+      return this.getTypeRule(this.model.type).icon
     },
     isSearchText() {
       if(this.searchText != ""){
@@ -53,56 +53,56 @@ export default {
   },
   methods: {
     getTypeRule(type) {
-      var typeRule = this.treeTypes.filter(t => t.type == type)[0];
-      return typeRule;
+      var typeRule = this.treeTypes.filter(t => t.type == type)[0]
+      return typeRule
     },
     blur() {
-      this.edit = false;
+      this.edit = false
     },
     selected(node) {
-      this.checked = null;
-      this.checked = this.model.id;
-      this.$emit("selected", node);
+      this.checked = null
+      this.checked = this.model.id
+      this.$emit('selected', node)
     },
     openTree(node) {
-      this.open = true;
-      this.$emit("openTree", node);
+      this.open = true
+      this.$emit('openTree', node)
     },
     addNode(newNode) {
-      var typeRule = this.getTypeRule(this.model.type);
+      var typeRule = this.getTypeRule(this.model.type)
 
       if (typeRule.valid_children.indexOf(newNode.type) > -1) {
-        this.model.children.push(newNode);
+        this.model.children.push(newNode)
       }
     },
     editName() {
-      this.edit = true;
-      this.$nextTick(() => this.$refs.title.focus());
+      this.edit = true
+      this.$nextTick(() => this.$refs.title.focus())
     },
     showContextMenu(e) {
-      e.preventDefault();
-      this.open = true;
-      this.selected(this);
+      e.preventDefault()
+      this.open = true
+      this.selected(this)
     },
     toggle() {
       if (this.isFolder) {
-        this.open = !this.open;
+        this.open = !this.open
       }
-      this.selected(this);
+      this.selected(this)
     }
   },
   created() {
     if (this.model.id == null) {
-      this.editName();
+      this.editName()
     }
-    this.open = this.openAll;
+    this.open = this.openAll
   },
   watch: {
     openAll(openAll) {
-      this.open = openAll;
+      this.open = openAll
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -125,10 +125,10 @@ ul .tree-node :hover:before {
   background: rgba(190, 235, 255, 0.3);
 }
 
-ul .tree-node input[type="radio"] {
+ul .tree-node input[type='radio'] {
   display: none;
 }
-ul .tree-node input[type="radio"]:checked + label:before {
+ul .tree-node input[type='radio']:checked + label:before {
   background: rgba(83, 215, 220, 0.3);
 }
 
@@ -142,7 +142,7 @@ ul label {
 ul label:before {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  content: "";
+  content: '';
   height: 21px;
   left: 0;
   position: absolute;
