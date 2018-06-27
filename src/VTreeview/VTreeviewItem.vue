@@ -39,7 +39,7 @@ export default {
       return this.getTypeRule(this.model.type).icon
     },
     isSearchText() {
-      if (this.searchText != '') {
+      if (this.searchText && this.searchText != '') {
         if (
           this.model.text
             .toLowerCase()
