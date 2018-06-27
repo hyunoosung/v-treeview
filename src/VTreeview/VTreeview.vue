@@ -10,37 +10,44 @@
 </template>
 
 <script>
-import VTreeviewItem from "./VTreeviewItem.vue";
-import VContext from "../VContext/VContext.vue";
+import VTreeviewItem from './VTreeviewItem.vue'
+import VContext from '../VContext/VContext.vue'
 
 export default {
-  props: ["value", "treeTypes", "openAll", "contextItems", "editName", "searchText"],
-  name: "v-treeview",
+  props: [
+    'value',
+    'treeTypes',
+    'openAll',
+    'contextItems',
+    'editName',
+    'searchText'
+  ],
+  name: 'v-treeview',
   data() {
     return {
       showContext: false,
       mouseEvent: null
-    };
+    }
   },
   created() {},
   methods: {
     selected(node) {
-      this.$emit("selected", node);
+      this.$emit('selected', node)
     },
-    contextSelected(title){
-      this.$emit("contextSelected", title);
+    contextSelected(title) {
+      this.$emit('contextSelected', title)
     },
     openTree(node) {
-      this.$emit("openTree", node);
+      this.$emit('openTree', node)
     },
     mousedown(e) {
       if (this.contextItems) {
-        e.preventDefault();
+        e.preventDefault()
         this.mouseEvent = {
           button: e.button,
-          pageX: e.pageX,
-          pageY: e.pageY
-        };
+          pageX: e.layerX,
+          pageY: e.layerY
+        }
       }
     }
   },
@@ -48,7 +55,7 @@ export default {
     VContext,
     VTreeviewItem
   }
-};
+}
 </script>
 
 <style scoped>
