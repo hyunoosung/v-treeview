@@ -46,7 +46,9 @@ export default {
           this.showContext = true;
         });
       } else if (this.mouseEvent.button === 0) {
-        this.showContext = false;
+        this.$nextTick(() => {
+          this.showContext = false;
+        })
       }
     }
   }
